@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: COLI-manual3.aux
+The style file: compling.bst
+Database file #1: compling_style.bib
+You've used 16 entries,
+            2855 wiz_defined-function locations,
+            685 strings with 6777 characters,
+and the built_in function-call counts, 8312 in all, are:
+= -- 704
+> -- 281
+< -- 22
++ -- 94
+- -- 78
+* -- 508
+:= -- 1337
+add.period$ -- 67
+call.type$ -- 16
+change.case$ -- 108
+chr.to.int$ -- 16
+cite$ -- 16
+duplicate$ -- 661
+empty$ -- 650
+format.name$ -- 112
+if$ -- 1683
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 123
+newline$ -- 82
+num.names$ -- 70
+pop$ -- 241
+preamble$ -- 1
+purify$ -- 88
+quote$ -- 0
+skip$ -- 259
+stack$ -- 0
+substring$ -- 356
+swap$ -- 312
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 135
+warning$ -- 0
+while$ -- 67
+width$ -- 0
+write$ -- 215

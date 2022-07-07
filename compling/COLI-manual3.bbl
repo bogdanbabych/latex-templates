@@ -1,0 +1,90 @@
+\begin{thebibliography}{16}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Akmajian and Jackendoff(1970)}]{akmajian}
+Akmajian, Adrian and Ray Jackendoff. 1970.
+\newblock Coreferentiality and stress.
+\newblock \emph{Linguistic Inquiry}, 1(1):124--126.
+
+\bibitem[{Altenberg(1987)}]{altenberg}
+Altenberg, Bengt. 1987.
+\newblock \emph{Prosodic Patterns in Spoken English: Studies in the Correlation
+  between Prosody and Grammar for Text-to-Speech Conversion}, volume~76 of
+  \emph{Lund Studies in English}.
+\newblock Lund University Press, Lund.
+
+\bibitem[{Appelt(1982)}]{appelt}
+Appelt, Douglas~E. 1982.
+\newblock Planning natural-language utterances to satisfy multiple goals.
+\newblock Technical Report 259, SRI.
+
+\bibitem[{Ayers(1992)}]{ayers}
+Ayers, Gail~M. 1992.
+\newblock Discourse functions of pitch range in spontaneous and read speech.
+\newblock Paper presented at the Linguistic Society of America annual meeting.
+
+\bibitem[{Baart(1987)}]{baart}
+Baart, J. L.~G. 1987.
+\newblock \emph{Focus, Syntax, and Accent Placement}.
+\newblock Ph.D. thesis, University of Leyden, Leyden.
+
+\bibitem[{Benoit and Bailly(1989)}]{benoit}
+Benoit, Christian and Gerard Bailly, editors. 1989.
+\newblock \emph{Proceedings of the Eurpoean Speech Communication Association
+  Workshop on Speech Synthesis, \emph{Autrans, September}}. European Speech
+  Communication Association. Institut de la Communication Parlee, Grenoble.
+
+\bibitem[{Cahn(1989)}]{cahn}
+Cahn, Janet~E. 1989.
+\newblock Generating expression in synthesized speech.
+\newblock Master's thesis, Massachusetts Institute of Technology, May.
+
+\bibitem[{Copestake, Lascarides, and Flickinger(2001)}]{Copestake2001}
+Copestake, Ann, Alex Lascarides, and Dan Flickinger. 2001.
+\newblock {An Algebra for Semantic Construction in Constraint-Based Grammars}.
+\newblock In \emph{Proceedings of the 39th Annual Conference of the Association
+  for Computational Linguistics (ACL-01)}, pages 140--147, Toulouse, France.
+
+\bibitem[{Cutler(1983)}]{cutler}
+Cutler, Anne. 1983.
+\newblock Speakers' conception of the functions of prosody.
+\newblock In Anne Cutler and D.~Robert Ladd, editors, \emph{Prosody: Models and
+  Measurements}. Springer-Verlag, Berlin, pages 79--92.
+
+\bibitem[{Jurafsky and Martin(2000)}]{jurafsky}
+Jurafsky, Daniel and James~H. Martin. 2000.
+\newblock \emph{Speech and Language Processing}, chapter~1. Prentice Hall.
+
+\bibitem[{Krahmer et~al.(1999)Krahmer, Swerts, Theune, and Weegels}]{krahmer}
+Krahmer, Emiel, M.~Swerts, Mariet Theune, and M.~Weegels. 1999.
+\newblock Error spotting in human-machine interactions.
+\newblock In \emph{Proceedings of EUROSPEECH-99}, pages 1423--1426, Budapest.
+
+\bibitem[{Robinson(1964)}]{robinson}
+Robinson, Jane~J. 1964.
+\newblock Automatic parsing and fact retrieval: A comment on grammar,
+  paraphrase, and meaning.
+\newblock Memorandum RM-3892-PR, The RAND Corporation, Santa Monica, CA.
+
+\bibitem[{Sgall(1970)}]{sgall}
+Sgall, Petr. 1970.
+\newblock L'ordre des mots et la semantique.
+\newblock In Ferenc Kiefer, editor, \emph{Studies in Syntax and Semantics}. D.
+  Reidel, New York, pages 231--240.
+
+\bibitem[{Sp\"arck~Jones(1964)}]{spaerckjones}
+Sp\"arck~Jones, Karen. 1964.
+\newblock \emph{Synonymy and Semantic Classification}.
+\newblock {D.Phil.}\ dissertation, Cambridge University, Cambridge, England.
+
+\bibitem[{Winograd(1972)}]{winograd}
+Winograd, Terry. 1972.
+\newblock \emph{Understanding Natural Language}.
+\newblock Academic Press, New York.
+
+\bibitem[{Woods(1970)}]{woods}
+Woods, William~A. 1970.
+\newblock Transition network grammars for natural language analysis.
+\newblock \emph{Communications of the {ACM}}, 13(10):591--606.
+
+\end{thebibliography}
