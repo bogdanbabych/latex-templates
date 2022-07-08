@@ -1,0 +1,457 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <meta name="Author" content="Andrij Shvaika">
+   <title>TeX and Ukrainian</title>
+</head>
+<body>
+
+<center>
+<h1>
+<a NAME="Top"></a><a href="http://ph.icmp.lviv.ua/~ashv/tex/TeXandUkrainian.html">T<sub>E</sub>X &amp; Ukrainian</a> <font size=+0>(ver. 28.02.2021)</font></h1></center>
+&nbsp;&nbsp;&nbsp; На цій сторінці Ви знайдете інформацію про TeX і його можливі види, а також чи потрібно його вчити української мови.
+<ul>
+<li>
+<a href="#WhatisTeX">Що таке TeX, або яка різниця між LaTeX, emTeX і BibTeX?</a></li>
+
+<li>
+<a href="#TUG">Об'єднання користувачів TeX (TUG).</a></li>
+
+<li>
+<a href="#CTAN">Де взяти TeX, або що таке CTAN?</a></li>
+
+<li>
+<a href="#macros">Основні набори макропакетів LaTeX.</a></li>
+
+<li>
+<a href="#ukrainian">Кирилізація TeX/LaTeX, або як його навчити української
+мови.</a></li>
+
+<ul>
+<li>
+<a href="#LH">Встановлення кириличних LH шрифтів (не актуально).</a></li>
+
+<li>
+<a href="#cyrbab">Встановлення пакетів cyrillic і babel (не актуально).</a></li>
+
+<li>
+<a href="#ukrhyph">Встановлення і конфіґурація українських переносів (не актуально).</a></li>
+
+<li>
+<a href="#uafmt">Створення нового форматного файлу LaTeX (не актуально).</a></li>
+
+<li>
+<a href="#plug">Підключення української в документі.</a></li>
+
+<li>
+<a href="#biblio">Створення української бібліоґрафії.</a></li>
+</ul>
+
+<li>
+<a href="#Distributions">Які є дистрибутиви TeXу і під які платформи?</a></li>
+
+<ul>
+<li>
+<a href="#UNIX">UNIX</a></li>
+
+<li>
+<a href="#Windows9x">Windows 9x/NT/XP/...</a></li>
+
+<li>
+<a href="#Macintosh">Macintosh</a></li>
+
+<li>
+<a href="#MS-DOS">MS-DOS, OS/2, Windows 3.xx (історична довідка)</a></li>
+
+<li>
+<a href="#TeXstudio">Налаштування інтегрованого середовища TeXstudio</a></li>
+</ul>
+
+<li>
+<a href="#doc">Документація по TeX/LaTeX.</a></li>
+
+<li>
+<a href="#internet">TeX в Internet.</a></li>
+</ul>
+
+<h2>
+<a NAME="WhatisTeX"></a>Що таке TeX, або яка різниця між LaTeX, emTeX і BibTeX?</h2>
+
+&nbsp;&nbsp;&nbsp; Дуже часто задають запитання <b>"Де взяти LaTeX під Windows?"</b>, або <b>"В мене є RevTeX на UNIX-сервері, а мені потрібно під DOS?"</b> на які дуже важко давати відповідь.
+
+<p>&nbsp;&nbsp;&nbsp; На даний час існує дуже багато дистрибутивів, пакетів, програм, які містять в своїй назві складову TeX, але по своїй суті це можуть бути принципово різні речі. Тому, перш ніж починати шукати TeX для своїх потреб, вартує засвоїти деякі базові поняття.
+
+<p>&nbsp;&nbsp;&nbsp; <b>T<sub>E</sub>X</b> (τεχ) є видавнича система написана проф. Дональдом Кнутом (<a href="http://Sunburn.Stanford.EDU/~knuth/">Donald E. Knuth</a>) для "створення гарних книжок — особливо книжок з великою кількістю математики". Для написання TeX Кнутом була розроблена система "літературного програмування" і вихідний "літературний" (WEB) код TeXу є доступний для вільного розповсюдження. Крім того система WEB надає засоби для відносно легкого перенесення TeX на нові операційні системи і комп'ютери (Web2C). Тому на даний час TeX є чи не єдиною потужною видавничою системою, яка існує практично для всіх платформ і операційних систем і для всіх них дає повністю ідентичний результат, з повною сумісністю файлів!
+
+<p>&nbsp;&nbsp;&nbsp; TeX за своєю суттю є макро процесор, який надає потужні можливості, але вимагає певного рівня програмування. Тому для практичних цілей Кнут створив макропакет <b><i>plain TeX</i></b>, який надає мінімальний набір макросів і команд високого рівня (моделі, шаблони) для форматування тексту і не тільки. Інший потужний макропакет <b><i>L<sup>A</sup>T<sub>E</sub>X</i></b> спочатку був написаний Леслі Лемпортом (Leslie Lamport), а тепер (LaTeX 2ε, проект LaTeX 3) розвивається групою добровольців на чолі з Френком Міттельбахом (Frank Mittelbach) і Крісом Роулі (Chris Rowley). Він дозволяє легко описати структуру документу, яка, при використанні відповідних класів документів і додаткових пакетів, може давати на виході по різному оформлений результат. Поряд з цими існує багато інших макропакетів (AmsTeX, AmsLaTeX, RevTeX, ...), які можуть функціонувати самостійно, або поверх LaTeX. <i>Всі макропакети існують і розповсюджуються у текстовому (ASCII) форматі і є однакові для всіх платформ і операційних систем.</i>
+
+<p>&nbsp;&nbsp;&nbsp; Канонічно, кожен TeXівський документ з підключенням відповідних макропакетів пропускається через процесор (компілятор) TeX на виході якого отримуємо <b><i>DVI</i></b> (device independent) файл, який з допомогою відповідних DVI драйверів можна переглянути на екрані, створити PostScript файл, або надрукувати на будь якому принтері. DVI драйвери є різні для різних платформ за виключенням <b>dvips</b> (драйвер друку в PostScript форматі), який існує для всіх операційних систем і вважається штатним. Створений PostScript файл можна або надрукувати на PostScript принтері, або з допомогою утиліти <b><a href="http://www.ghostscript.com/">ghostscript</a></b> переглянути на екрані чи надрукувати на будь-якому не PostScript принтері, або з допомогою утиліти <b>ps2pdf</b> перетворити в <b><i>PDF</i></b> файл. 
+
+<p>&nbsp;&nbsp;&nbsp; Тепер основним процесором (компілятором) став <b>pdfTeX/pdfLaTeX</b>, який на виході створює не DVI, а <b><i>PDF</i></b> файл. Це зумовлено в першу чергу тим, що, за виключенням <b>dvips</b>, розробка більшості, зокрема екранних, DVI драйверів практично призупинена. Багато сучасних інтегрованих середовищ орієтовані саме на використання <b>pdfTeX/pdfLaTeX</b> (див. нижче).
+
+<p>&nbsp;&nbsp;&nbsp; Додатково TeX, як видавнича система, включає <b><i>BibTeX</i></b> (програма для створення списку посилань з бібліоґрафічної бази даних), <b><i>MakeIndex</i></b> для створення різного роду покажчиків, і багато інших. <i>Бінарні реалізації</i> TeX процесора (tex, tex386, initex, virtex, ...), як і DVI драйверів, BibTeX, MakeIndex, <i>звичайно є різні для різних платформ і операційних систем</i> і є складовими частинами різних дистрибутивів, наприклад: teTeX для UNIX; emTeX для MS-DOS, OS/2 і Windows 3.xx; mikTeX для Windows 9x/NT; ozTeX для Macintosh).
+
+<p>&nbsp;&nbsp;&nbsp; Тому говорячи про той чи інший TeX слід чітко розрізняти конкретні реалізації в бінарних кодах, певні програми чи набори макропакетів. 
+
+<p><a href="#Top">[Початок]</a>
+
+<h2><a NAME="TUG"></a>Об'єднання користувачів TeX (TUG).</h2>
+
+&nbsp;&nbsp;&nbsp; Користувачі TeX усього світу об'єднані в Групу користувачів TeX (<a href="http://www.tug.org/">TeX Users Group — TUG</a>). На сервері <a href="http://www.tug.org/">TUG (http://www.tug.org/)</a> можна знайти багато корисної інформації про TeX, його складові компоненти, існуючі макропакети і дистрибутивів.
+
+<p>&nbsp;&nbsp;&nbsp; Крім світового об'єднання <a href="http://www.tug.org/">TUG</a> в різних країнах є свої національні об'єднання користувачів TeX. В Україні на даний час немає свого національного об'єднання. В Москві при видавництві "Мир" існувала Група користувачів кириличного TeXу (<a href="http://www.cemi.rssi.ru/cyrtug/">Cyrillic TeX Users Group — CyrTUG</a>), яка курувала розробку підтримки кирилиці в TeX. У 2000 році трансформувалася у <a href="http://cyrtex.da.ru/">CyrTeX</a> — Асоціацію користувачів кириличного TeXу. На даний час саморозпустилася, а її функції виконують <a href="http://ru.wikipedia.org/wiki/TeX_Users_Group">списки розсилки і спеціалізовані форуми<a>.
+
+<p><a href="#Top">[Початок]</a>
+
+<h2><a NAME="CTAN"></a>Де взяти TeX, або що таке CTAN?</h2>
+
+&nbsp;&nbsp;&nbsp; TeX є вільно розповсюджуваним продуктом і будь-які його складові частини можна отримати безплатно на <B>CTAN (<a href="http://www.ctan.org/">Comprehensive TeX Archive Network</a>)</B>. <B><a href="http://www.ctan.org/">CTAN</a></B> має потужні засоби пошуку, а також можливість стягувати цілі директорії у заархівованому виді.
+
+<p><a href="#Top">[Початок]</a>
+
+<h2><a NAME="macros"></a>Основні набори макропакетів LaTeX.</h2>
+
+&nbsp;&nbsp;&nbsp; Всі набори макросів під TeX/LaTeX знаходяться у директорії <a href="http://ctan.org/tex-archive/macros">CTAN/macros</a>, де вони згруповані по основних "видах" TeXу. Макроси для LaTeX 2ε є у директорії <a href="http://ctan.org/tex-archive/macros/latex">CTAN/macros/latex</a>, а для старого LaTeX 2.09 — у директорії <a href="http://ctan.org/tex-archive/macros/latex209">CTAN/macros/latex209</a>.
+
+<p>&nbsp;&nbsp;&nbsp; Макропакети під LaTeX 2ε згруповані наступним чином:
+
+<ul>
+<li><b><a href="http://ctan.org/pkg/base">base</a></b> — базовий дистрибутив (основне ядро) LaTeX 2ε.</li>
+
+<li><b><a href="http://ctan.org/pkg/required">required</a></b> — основні доповнення до ядра, які підтримуються розробниками LaTeX 2ε:</li>
+
+<ul>
+<li><b><a href="http://ctan.org/pkg/tools">tools</a></b> — набір стандартних розширень LaTeX: multicol, afterpage, longtable, theorem і т.п.</li>
+
+<li><b><a href="http://ctan.org/pkg/amslatex">amslatex</a></b> — розширення математичних можливостей LaTeX від AMS (American Mathematical Society).</li>
+
+<li><b><a href="http://ctan.org/pkg/babel">babel</a></b> — набір пакетів підтримки різних мов, у тому числі української (національні назви місяців, стандартних структурних частин документу, особливості форматування).</li>
+
+<li><b><a href="http://ctan.org/pkg/cyrillic">cyrillic</a></b> — набір пакетів LaTeX 2ε для підтримки мов на основі кирилиці [засоби підключення кириличних шрифтів (без самих шрифтів), підтримка різних кодувань кирилиці].</li>
+
+<li><b><a href="http://ctan.org/pkg/graphics">graphics</a></b> — пакет для вставлення, масштабування і обертання графічних об'єктів, а також для кольорового оформлення текстів.</li>
+
+<li><b><a href="http://ctan.org/pkg/psnfss">psnfss</a></b> — засоби для підключення Adobe Type 1 шрифтів (без самих шрифтів).</li>
+</ul>
+
+<li><b><a href="http://ctan.org/tex-archive/macros/latex/contrib">contrib</a></b> — величезний набір пакетів для LaTeX 2ε, створених різними авторами і для різних потреб.</li>
+</ul>
+
+<B>Сучасні дистрибутиви TeX містять всі необхідні набори пакетів. Встановлення і видалення окремих пакетів описано в документації до дистрибутивів (<a href="#Distributions">див. нижче</a>)</B><br>
+Тільки у <B>виняткових</B> випадках виникає потреба у ручному встановлення (інсталяція) пакетів, яка залежить від формату їх розповсюдження. Якщо пакет розповсюджується у <b><tt><font size=+2>.dtx</font></tt></b> форматі, то дистрибутив містить також файл інсталяції <b><tt><font size=+2>.ins</font></tt></b> і для встановлення пакету слід пропустити цей файл через LaTeX: <b><tt><font size=+2>latex filename.ins</font></tt></b>, — і скопіювати зґенеровані файли у відповідні директорії для стильових файлів і макропакетів. Для отримання документації слід пропустити через LaTeX сам <b><tt><font size=+2>.dtx</font></tt></b> файл. В інших випадках достатньо скопіювати файли у відповідні директорії. Після цього для деяких дистрибутивів TeX (напр.: teTeX, MikTeX, fpTeX) слід провести оновлення бази даних імен файлів (filename database).
+
+<p><a href="#Top">[Початок]</a>
+
+<h2><a NAME="ukrainian"></a>Кирилізація TeX/LaTeX, або як його навчити української мови.</h2>
+
+&nbsp;&nbsp;&nbsp; З 1998 року діє офіційний стандарт з підтримки кирилиці в TeX/LaTeX (включаючи українську мову). Він включає підтримку кирилиці
+в LaTeX 2ε (починаючи з версії від 31 грудня 1998 р.), підтримку української мови в <b>babel</b>, кириличні LH шрифти і українські переноси. Деталі описані в <b>cyrguide.tex</b> в <b>base</b> дистрибутиві LaTeX 2ε.
+
+<p>&nbsp;&nbsp;&nbsp; Відповідні пакети Ви можете знайти на серверах CTAN в директоріях:
+
+<ul>
+<li><a href="http://ctan.org/pkg/lh">lh</a> — кириличні шрифти у форматі METAFONT,</li>
+
+<li><a href="http://ctan.org/pkg/cm-super">cm-super</a> — кириличні шрифти у форматі Adobe Type 1,</li>
+
+<li><a href="http://ctan.org/pkg/t2">t2</a> — підтримка кирилиці для plain TeX і у формулах,</li>
+
+<li><a href="http://ctan.org/pkg/ukrhyph">ukrhyph</a> — українські переноси,</li>
+
+<li><a href="http://ctan.org/pkg/gost">gost</a> — стилі BibTeX для форматування бібліоґрафічних посилань англійською, російською і українською мовами згідно (між)державних стандартів (ГОСТ та ДСТУ).</li>
+</ul>
+
+<B>Нові дистрибутиви TeX вже містять всі необхідні пакети (<a href="#Distributions">див. нижче</a>).</B>
+
+<p>&nbsp;&nbsp;&nbsp; Процес кирилізація/українізації складається з наступних етапів <B>(для більшості дистрибутивів це вже зроблено розробниками, <a href="#Distributions">див. нижче</a>)</B>:
+
+<h3>&nbsp;<a NAME="LH"></a>Встановлення кириличних LH шрифтів (не актуально)</h3>
+
+&nbsp;&nbsp;&nbsp; Стягнути вміст директорії <a href="http://ctan.org/tex-archive/fonts/cyrillic/lh">fonts/cyrillic/lh</a> з CTAN і уважно прочитати файл <b><tt><font size=+2>install</font></tt>.</b> <b>LH</b> шрифти використовують деякі файли з пакету <b>EC</b> шрифтів (шрифти для європейських мов на основі латинки), <i>тому їх теж слід встановити</i>. Cучасні дистрибутиви TeX містять в комплекті EC шрифти.
+
+<p>&nbsp;&nbsp;&nbsp; <b>LH</b> шрифти підтримують наступні внутрішні кодування (font encoding), <i>не плутати з кодуванням документа (input encoding)</i>:
+
+<ul>
+<li><b>T2A</b>, T2B, T2C — основні кодування (латинка+кирилиця). Кодування кириличних букв в основній частині співпадає з Windows CP 1251. Український алфавіт підтримується кодуванням <b>T2A</b> (<b>рекомендується</b>).</li>
+
+<li>LCY — кодування на основі альтернативного варіанту CP 866 (латинка+кирилиця). Кодування українських букв співпадає з стандартом України РСТ 2018-91. Рекомендується хіба що для LaTeX 2.09 або для сумісності зі старими способами кирилізації.</li>
+
+<li>X2 — кодування, яке містить всі можливі символи з усіх алфавітів на основі кирилиці (тільки кирилиця).</li>
+
+<li>OT2 — старе кодування кирилиці під TeX (Washington University Cyrillic, WNCYR, AMS Cyrillic). Кирилиця розміщена у нижній (основній) частині кодової таблиці замість латинки. Не містить усіх українських літер.</li>
+</ul>
+
+<h3>&nbsp;<a NAME="cyrbab"></a>Встановлення пакетів cyrillic і babel (не актуально)</h3>
+
+&nbsp;&nbsp;&nbsp; Стягнути вміст директорії <a href="http://ctan.org/tex-archive/macros/latex/required/cyrillic">macros/latex/required/cyrillic</a> і <a href="http://ctan.org/tex-archive/macros/latex/required/babel/base">macros/latex/required/babel</a> з CTAN, пропустити через LaTeX <b><tt><font size=+2>cyrlatex.ins</font></tt></b> і <b><tt><font size=+2>babel.ins</font></tt></b>, скопіювати зґенеровані файли у відповідні директорії і при необхідності оновити бази даних імен файлів.
+
+<h3>&nbsp;<a NAME="ukrhyph"></a>Встановлення і конфіґурація українських переносів (не актуально)</h3>
+
+&nbsp;&nbsp;&nbsp; Стягнути вміст директорії <a href="http://ctan.org/tex-archive/language/hyphenation/ukrhyph">language/hyphenation/ukrhyph</a>, скопіювати файли у відповідну директорію і уважно прочитати файл <b><tt><font size=+2>readme</font></tt></b>. Відредагувати, при потребі, файл <b><tt><font size=+2>ukrhyph.tex:</font></tt></b> задати внутрішнє кодування шрифту (<b>T2A</b> або LCY або OT2 або X2) і вибрати одну з п'яти таблиць переносу:
+
+<ul>
+<li><b>ukrhypsm.tex</b> — таблиця переносів створена мною на основі списку 84000 українських слів з розставленими переносами згідно нових (1990 р.) правил.</li>
+
+<li><b>ukrhypst.tex</b> — таблиця переносів створена мною на основі списку 84000 українських слів з розставленими переносами згідно нових (1990 р.) правил, але з деякими поправками (усунені, як на мій смак, надто ліберальні переноси).</li>
+
+<li> <b>ukrhypmt.tex</b> — таблиця переносів створена Максимом Поляковим згідно старих (1960 р.) правил.</li>
+
+<li><b>ukrhypmp.tex</b> — таблиця переносів створена Максимом Поляковим згідно старих (1960 р.) правил і з використанням фонетичного поділу на склади.</li>
+
+<li><b>ukrhypfa.tex</b> — таблиця переносів створена Максимом Поляковим на основі російських переносів Дмитра Вуліса із заміною російських букв українськими (чисто експериментальна :)</li>
+</ul>
+
+По замовчуванню, встановлено кодування T2A і таблиця переносів ukrhypmp.tex.
+
+<br>&nbsp;&nbsp;&nbsp; Підключити українську таблицю переносів у LaTeX (див. <b>readme</b> в пакеті <b>ukrhyph</b>), для чого створити або відредагувати файл <b><tt><font size=+2>language.dat</font></tt></b> з пакету <b>babel</b>, а саме, або додати рядок
+<dl>
+<dd>
+<b><tt><font size=+2>ukrainian ukrhyph.tex</font></tt></b></dd>
+</dl>
+або групу рядків
+<dl>
+<dd>
+<b><tt><font size=+2>ukreng ukrenhyp.tex</font></tt></b></dd>
+<dd>
+<b><tt><font size=+2>=english</font></tt></b></dd>
+<dd>
+<b><tt><font size=+2>=ukrainian</font></tt></b></dd>
+</dl>
+
+В останньому випадку українські переноси підключаються разом з англійськими як один <tt><font size=+2>\language</font></tt>.
+
+<h3>&nbsp;<a NAME="uafmt"></a>Створення нового форматного файлу LaTeX (не актуально)</h3>
+
+&nbsp;&nbsp;&nbsp; Згідно документації до Вашого дистрибутиву TeX, переґенерувати форматний файл <b>latex</b>.
+
+<h3>&nbsp;<a NAME="plug"></a>Підключення української в документі</h3>
+
+&nbsp;&nbsp;&nbsp; Для підключення кирилиці у документ слід в преамбулі, після команди <b><tt><font size=+2>\documentclass</font></tt></b> і перед <b><tt><font size=+2>\begin{document}</font></tt></b>, набрати наступні команди:
+<dl>
+<dd>
+<tt><font size=+2><nobr><b>\usepackage{type1ec}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% для автоматичної інсталяції <b>cm-super</b> під <b>miktex</b> (використання шрифтів довільного розміру).</nobr></font></tt></dd>
+
+<dd>
+<tt><font size=+2><nobr><b>\usepackage{mathtext}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% підключення кирилиці у математичних формулах</nobr></font></tt></dd>
+
+<dd>
+<tt><font size=+2><nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% (mathtext.sty входить в пакет <b>t2</b>).</nobr></font></tt></dd>
+
+<dd>
+<tt><font size=+2><nobr><b>\usepackage[T1,T2A]{fontenc}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% внутрішнє кодування шрифтів (може бути декілька);</nobr></font></tt></dd>
+
+<dd>
+<tt><font size=+2><nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% вказане останнім діє по замовчуванню;</nobr></font></tt></dd>
+
+<dd>
+<tt><font size=+2><nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% кириличне має співпадати з заданим в <b>ukrhyph.tex</b>.</nobr></font></tt></dd>
+
+<dd>
+<tt><font size=+2><nobr><b>\usepackage[cp1251]{inputenc}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% кодування документа; замість <b>cp1251</b></nobr></font></tt></dd>
+
+<dd>
+<tt><font size=+2><nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% може бути <b>cp866nav</b>, <b>koi8-u</b>, <b>macukr</b>, <b>iso88595</b>, <b>utf8</b>.</nobr></font></tt></dd>
+
+<dd>
+<tt><font size=+2><nobr><b>\usepackage[english,ukrainian]{babel}</b> % національна локалізація; може бути декілька</nobr></font></tt></dd>
+
+<dd>
+<tt><font size=+2><nobr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% мов; остання з переліку діє по замовчуванню.</nobr></font></tt></dd>
+</dl>
+
+переключення між мовами здійснюється з допомогою команди <b><tt><font size=+2>\selectlanguage</font></tt></b>, напр. <b><tt><font size=+2>\selectlanguage{ukrainian}</font></tt></b>. Більш детально все описано в <b>cyrguide.tex</b> з дистрибутиву LaTeX 2ε і у документації до <b>babel</b> (файл <b>user.tex</b>). <i>Ще важливо відмітити, що при підключенні деяких мов з допомогою пакету <b>babel</b> певні символи стають активними і сприймаються не як текстовий символ, а як команда. Зокрема, для української мови таким <b>активним символом є знак подвійної лапки (")</b>. Тому слід уникати його використання, а для набору лапок слід використовувати пари символів (``) для відкриваючої лапки і ('') для закриваючої. Детальніше про додаткові команди для набору українських текстів описані в розділі 2.5.1 українського перекладу <B><a href="http://ctan.org/pkg/lshort-ukr">lshort</a></B></i>.
+
+<p>&nbsp;&nbsp;&nbsp; Для підключення кирилиці у документах набраних в старому <b>LaTeX 2.09</b> слід створити стильовий файл, напр. <b><tt><font size=+2>ukrainian.sty</font></tt></b>, який містить відповідні рядки з преамбули, але з заміною команди <b><tt><font size=+2>\usepackage</font></tt></b> на <b><tt><font size=+2>\RequirePackage</font></tt></b>, напр.:
+<dl>
+<dd>
+<b><tt><font size=+2>\RequirePackage[T2A]{fontenc}</font></tt></b></dd>
+<dd>
+<b><tt><font size=+2>\RequirePackage[koi8-u]{inputenc}</font></tt></b></dd>
+<dd>
+<b><tt><font size=+2>\RequirePackage[ukrainian]{babel}</font></tt></b></dd>
+</dl>
+
+<h3>&nbsp;<a NAME="biblio"></a>Створення української бібліоґрафії</h3>
+
+&nbsp;&nbsp;&nbsp; Основна проблема при створенні бібліоґрафії (списку літератури) кирилицею полягає в тому, що ориґінальний bibTeX обробляє тільки 7-ми бітові коди. Тому було створено його модифікацію <b>bibtex8</b>, яка вміє працювати з 8-ми бітовими символами. Список посилань (файл з розширенням <b><tt><font size=+2>.bbl</font></tt></b>) створюється з допомогою команди:
+<dl>
+<dd>
+<b><tt><font size=+2>bibtex8 -H -c cp1251 filename.aux</font></tt></b></dd>
+</dl>
+де замість <b><tt><font size=+2>cp1251</font></tt></b> може бути <b><tt><font size=+2>koi8u</font></tt></b>, <b><tt><font size=+2>ruscii</font></tt></b> (кодування DOS) або <b><tt><font size=+2>utf8cyrillic</font></tt></b>, які задають звертання до відповідних конфіґураційних (.csf) файлів пакету <a href="http://ctan.org/pkg/gost">gost</a>. Тобто, послідовність дій є наступною:
+<dl>
+<dd>
+<b><tt><font size=+2>pdflatex filename.tex</font></tt></b></dd>
+<dd>
+<b><tt><font size=+2>bibtex8 -H -c cp1251 filename.aux</font></tt></b></dd>
+<dd>
+<b><tt><font size=+2>pdflatex filename.tex</font></tt></b></dd>
+<dd>
+<b><tt><font size=+2>pdflatex filename.tex</font></tt></b></dd>
+</dl>
+
+<p>Самі бібліоґрафічні бази даних bibTeX (файли з розширенням <b><tt><font size=+2>.bib</font></tt></b>) можна створювати з допомогою звичайного текстового редактора, або використовуючи спеціалізовані програми. Найбільш придатною для набору кирилиці є <B>java</B> програма <B><a href="http://www.jabref.org/">JabRef</a></B>, яка працює під усіма операційними системами і може імпортувати дані у форматі BibTeXML, CSA, Refer/Endnote, ISI Web of Science, SilverPlatter, Medline/Pubmed (xml), Scifinder, OVID, INSPEC, Biblioscape, Sixpack, JStor та RIS.
+
+<p>Підключення списку посилань у документі здійснюється з допомогою команд <b><tt><font size=+2>\bibliographystyle</font></tt></b>, яка задає стиль оформлення бібліоґрафії, та <b><tt><font size=+2>\bibliography</font></tt></b>, яка вказує файли з бібліоґрафічними базами (файли з розширенням <b><tt><font size=+2>.bib</font></tt></b>), напр.,
+<dl>
+<dd>
+<b><tt><font size=+2>\bibliographystyle{gost2003}   %%% ГОСТ 7.1-2003; ДСТУ ГОСТ 7.1:2006</font></tt></b>&nbsp;&nbsp;&nbsp; — для оформлення бібліоґрафічних описів у ЗВІТАХ У СФЕРІ НАУКИ І ТЕХНІКИ (ДСТУ 3008:2015) і авторефератах дисертацій</dd>
+<dd>
+<b><tt><font size=+2>\def\BibEmph#1{\emph{#1}}&nbsp;&nbsp;&nbsp;   %%% для краси</font></tt></b></dd>
+<dd>
+<b><tt><font size=+2>\bibliography{mybib,genbib}</font></tt></b></dd>
+</dl>
+або
+<dl>
+<dd>
+<b><tt><font size=+2>\bibliographystyle{gost2008}   %%% ГОСТ Р 7.0.5-2008; ДСТУ 8302:2015</font></tt></b>&nbsp;&nbsp;&nbsp; — для оформлення бібліоґрафічних посилань у дисертаціях</dd>
+<dd>
+<b><tt><font size=+2>\def\BibEmph#1{\emph{#1}}&nbsp;&nbsp;&nbsp;   %%% для краси</font></tt></b></dd>
+<dd>
+<b><tt><font size=+2>\def\BibDash{} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            %%% забирає тире, які тепер не обов'язкові</font></tt></b></dd>
+<dd>
+<b><tt><font size=+2>\bibliography{mybib,genbib}</font></tt></b></dd>
+</dl>
+
+<p><a href="#Top">[Початок]</a>
+
+<h2><a NAME="Distributions"></a>Які є дистрибутиви TeXу і під які платформи?</h2>
+
+&nbsp;&nbsp;&nbsp; Базовим дистрибутивом для всіх платформ є Web2C, але, як правило, він використовується тільки розробниками дистрибутивів під конкретні платформи. Дистрибутиви TeX під різні платформи можна знайти на CTAN в директорії <a href="http://ctan.org/tex-archive/systems">systems</a>. Нижче перераховані найбільш популярні дистрибутиви TeX, а також зазначено їх ступінь кирилізації/українізації. Оскільки бінарні компоненти TeX призначені для роботи з командної стрічки, то для полегшення роботи створено різного типу оболонки-середовища, інформація про які також приведена.
+
+<p>&nbsp;&nbsp;&nbsp; TUG розповсюджує <B><a href="http://www.tug.org/texlive">TeX Live</a></B> з готовою до запуску TeX системою для більшості видів UNIX, включаючи <B>Linux</B>, та <B>Windows</B> (для <B>Mac OS X</B> є окрема збірка <B><a href="http://www.tug.org/mactex/">MacTeX</a></B>) з дуже повним набором шрифтів і макросів розміщених згідно стандарту структури TeX директорії (<a href="http://www.tug.org/tds">TeX directory structure — TDS</a>). ISO образ TeX Live DVD знаходиться на CTAN в директорії <a href="http://ctan.org/tex-archive/systems/texlive/Images">systems/texlive/Images</a>.
+
+<p>&nbsp;&nbsp;&nbsp; Мінімальна інсталяція <B><a href="http://www.tug.org/texlive">TeX Live</a></B> з підтримкою української мови (стосується оригінального “vanilla” TeX Live від TUG) включає <B>scheme-small</B> з додаванням <B>collection-binextra</B>, <B>collection-fontutils</B>, <B>collection-langcyrillic</B> та <B>collection-fontsrecommended</B>.
+
+<p>&nbsp;&nbsp;&nbsp; Для полегшення набору текстів в TeX/LaTeX і автоматизації роботи розроблемі спеціальні інтегровані середовища. Тут приведена інформація про IDE, які існують для усіх основних операційних систем. Найстарішою оболонкою, яка здатна працювати і в текстовому терміналі, є <b>emacs</b> (<b>xemacs</b>), під який розроблений свій макро-набір <a href="ftp://ftp.dante.de/tex-archive/support/auctex">auctex</a>. Також існують спеціальні оболонки з графічним інтерфейсом, але тільки деякі з них мають засоби для набору кириличних текстів. У першу чергу це <a href="http://tug.org/texworks/">TeXworks</a>, який орієнтований на використання pdfTeX/pdfLaTeX і створення <b>PDF</b> документів та входить у більшість дистрибутивів. Більш гнучким у використанні є <B><a href="http://texstudio.sourceforge.net/">TeXstudio</a></B>, який є відгалуженням з додатковою функціональністю оболонки <a href="http://www.xm1math.net/texmaker/">Texmaker</a>.
+
+<h3>&nbsp;<a NAME="UNIX"></a>UNIX</h3>
+
+&nbsp;&nbsp;&nbsp; Під UNIX, включаючи GNU/Linux, основним дистрибутивом є <B><a href="http://www.tug.org/texlive">TeX Live</a></B>. У більшості випадків <B>TeX Live</B> є складовою частиною дистрибутиву самої операційної системи і може бути встановлений використовуючи стандартні засоби додавання пакетів. <B>TeX Live</B> містить усі необхідні компоненти для кирилізації/українізації.
+
+<p>&nbsp;&nbsp;&nbsp; Особливості встановлення <B><a href="http://www.tug.org/texlive">TeX Live</a></B> під Debian/Ubuntu, зокрема оригінального “vanilla” TeX Live від TUG, описано в <a href="https://www.tug.org/texlive/debian.html">TeX Live and Debian/Ubuntu</a>.
+
+<p>&nbsp;&nbsp;&nbsp; Мінімальна інсталяція <B><a href="http://www.tug.org/texlive">TeX Live</a></B> з підтримкою української мови (стосується “vanilla” TeX Live) включає <B>scheme-small</B> з додаванням <B>collection-binextra</B>, <B>collection-fontutils</B>, <B>collection-langcyrillic</B> та <B>collection-fontsrecommended</B>. З другого боку, в дистрибутивах GNU/Linux пакети <B><a href="http://www.tug.org/texlive">TeXlive</a></B> можуть бути згруповані в збірки в інший спосіб і під іншими назвами.
+
+<p>&nbsp;&nbsp;&nbsp; Найстарішою оболонкою, яка здатна працювати і в текстовому терміналі, є <b>emacs</b> (<b>xemacs</b>), під який є розроблений свій макро-набір <a href="ftp://ftp.dante.de/tex-archive/support/auctex">auctex</a>. Також існують спеціальні оболонки під X Windows, але тільки деякі з них мають засоби для набору кириличних текстів. У першу чергу це <a href="http://tug.org/texworks/">TeXworks</a>, який орієнтований на використання pdfTeX/pdfLaTeX і створення <b>PDF</b> документів та входить у більшість дистрибутивів. Більш гнучкими у використання є <B><a href="http://texstudio.sourceforge.net/">TeXstudio</a></B>, який є відгалуженням з додатковою функціональністю оболонки <a href="http://www.xm1math.net/texmaker/">Texmaker</a>, а також <a href="http://kile.sourceforge.net/">Kile</a> під KDE.
+
+<h3>&nbsp;<a NAME="Windows9x"></a>Windows 9x/NT/XP/...</h3>
+
+&nbsp;&nbsp;&nbsp; Під Windows 9x/NT/XP/... основними дистрибутивами є <B><a href="http://www.miktex.org/">MikTeX</a></B> (<a href="http://ctan.org/pkg/miktex">systems/win32/miktex</a>) та <B><a href="http://www.tug.org/texlive">TeX Live</a></B>. Також TUG створило на основі <a href="http://www.miktex.org/">MikTeX</a> окремий дистрибутив <B><a href="http://tug.org/protext">proTeXt</a></B> під Windows, який включає додаткові програми, зокрема вільну оболонку <B><a href="http://texstudio.sourceforge.net/">TeXstudio</a></B> і <a href="http://www.ghostscript.com/">ghostscript</a>, та простіший у встановленні.
+
+<p>&nbsp;&nbsp;&nbsp; <b><a href="http://www.miktex.org/">MikTeX</a></b> має всі необхідні компоненти для кирилізації/українізації. Усі налаштування виконуються з допомогою штатної програми MiKTeX Console. Унікальною особливістю <a href="http://www.miktex.org/">MikTeX</a> є автоматичне встановлення відсутніх пакетів, що корисно при мінімальній інсталяції, але це не завжди спрацьовує. Тому <b>ОБОВ'ЗКОВО</b> встановіть стандартні, у тому числі кириличні, шрифти у форматі Adobe Type 1, <b><a href="http://ctan.org/pkg/cm-super">cm-super</a></b>, які потрібні для створення якісних PDF-файлів. Для цього достатньо <i>один раз</i> в преамбулі документа поставити <b>\usepackage{type1ec}</b> перед викликом <b>fontenc</b>.
+
+<p>&nbsp;&nbsp;&nbsp; Мінімальна інсталяція <B><a href="http://www.tug.org/texlive">TeX Live</a></B> включає <B>scheme-small</B> з додаванням <B>collection-binextra</B>, <B>collection-fontutils</B>, <B>collection-langcyrillic</B> та <B>collection-fontsrecommended</B>.
+
+<p>&nbsp;&nbsp;&nbsp; Як інтегроване середовище використовується <a href="http://tug.org/texworks/">TeXworks</a>, який орієнтований на використання pdfTeX/pdfLaTeX і створення <b>PDF</b> документів. Але як <a href="http://www.miktex.org/">MikTeX</a> так і <B><a href="http://www.tug.org/texlive">TeX Live</a></B> легко інтегруються з іншими IDE, зокрема з вище згаданими <B><a href="http://texstudio.sourceforge.net/">TeXstudio</a></B>, який є відгалуженням з додатковою функціональністю оболонки <a href="http://www.xm1math.net/texmaker/">Texmaker</a>, та <a href="http://www.texniccenter.org/">TeXnicCenter</a>. Також існує зручна і потужна оболонка <a href="http://www.winedt.com/">WinEdt</a> (shareware).
+
+<!--
+<p>&nbsp;&nbsp;&nbsp; Оскільки екранні DVI драйвери цих пакетів використовують <b><a href="http://www.ghostscript.com/">ghostscript</a></b>
+для відображення графічних об'єктів у PostScript форматі, то його слід обов'язково встановити <i>перед</i> інсталяцією самого дистрибутиву та IDE.
+-->
+
+<h3>&nbsp;<a NAME="Macintosh"></a>Macintosh</h3>
+
+&nbsp;&nbsp;&nbsp; На основі <B><a href="http://www.tug.org/texlive">TeX Live</a></B> створено спеціальний дистрибутив <B><a href="http://www.tug.org/mactex/">MacTeX</a></B>, який додатково містить встановлювач під MacOS X та оболонку <a href="http://www.uoregon.edu/~koch/texshop/">TeXShop</a>, а також деякі специфічні для MacOS X утиліти. Випускається також доповнення MacTeXtras, з додатковими утилітами. <a href="http://www.tug.org/mactex/">MacTeX</a> містить усі необхідні компоненти для кирилізації/українізації. 
+
+<p>&nbsp;&nbsp;&nbsp; Дистрибутив <a href="http://www.tug.org/mactex/">MacTeX</a> включає інтегровані середовища <a href="http://www.uoregon.edu/~koch/texshop/">TeXShop</a> та <a href="http://tug.org/texworks/">TeXworks</a>. Також під MacOS X можна використовувати <a href="http://texstudio.sourceforge.net/">TeXstudio</a>, <a href="http://www.xm1math.net/texmaker/">Texmaker</a> та <a href="http://itexmac.sourceforge.net/">iTeXMac</a>.
+
+<p>&nbsp;&nbsp;&nbsp; Детальну інформацію про використання TeX на Mac OS X можна знайти на <a href="http://mactex-wiki.tug.org">TeX on Mac OS X wiki</a>.
+
+<h3>&nbsp;<a NAME="MS-DOS"></a>MS-DOS, OS/2, Windows 3.xx (історична довідка)</h3>
+
+&nbsp;&nbsp;&nbsp; Під MS-DOS і Windows 3.xx на даний час вижили тільки <a href="http://ctan.org/pkg/emtex">emTeX</a>,
+<a href="http://ctan.org/pkg/djgpp">djgpp</a> і <a href="http://ctan.org/tex-archive/systems/msdos/dos-tp">dos-tp</a>.
+
+<br><b>&nbsp;&nbsp;&nbsp; djgpp</b> є фактично портом web2c/teTeX під <a href="http://www.delorie.com/djgpp/">DJGPP</a> (32-bit C/C++ development system + GNU development utilities), без якого не працює. Не містить ніяких засобів кирилізації, все потрібно встановлювати.
+
+<br><b>&nbsp;&nbsp;&nbsp; dos-tp</b> містить тільки бінарні модулі і вимагає значних знань і зусиль по встановленню і конфіґурації.
+
+<br>&nbsp;&nbsp;&nbsp; Найбільш популярним пакетом під OS/2, MS-DOS і Windows 3.xx є <b><a href="http://ctan.org/pkg/emtex">emTeX</a></b>. Для emTeX існує готовий до вжитку пакет (<b><a href="http://www.botik.ru/~znamensk/ftp.vsu.ru/ruemtex.zip">ruemtex.zip</a></b> або <b><a href="http://www.botik.ru/~znamensk/ftp.vsu.ru/ruemtex.rar">ruemtex.rar</a></b>), правда без українських переносів і зі старою версією <b>babel</b> без підтримки
+української мови.
+
+<br>&nbsp;&nbsp;&nbsp; Для підключення української мови слід встановити нову версію <b><a href="#cyrbab">babel</a></b> і <a href="#ukrhyph">українські переноси</a>.
+
+<br>&nbsp;&nbsp;&nbsp; Дистрибутив emTeX не оновлюється з середини 1998 року, тому вартує оновити також <a href="#macros">ядро LaTeX 2ε і основні пакети</a>.
+
+<br>&nbsp;&nbsp;&nbsp; При створенні нового форматного файлу не забудьте задати опції для підключення 8-бітового кодування (див. <tt><font size=+2>tex.doc</font></tt>), наприклад: <b><tt><font size=+2><nobr>tex386.exe -i -mt45000 -8 -o -r -ml latex.ltx</nobr></font></tt></b>
+
+<br>&nbsp;&nbsp;&nbsp; Як оболонки-середовища для emTeX є <b><a href="http://ctan.org/tex-archive/systems/msdos/texshell">texshell</a></b> під MS-DOS/OS2; <a href="http://ctan.org/tex-archive/systems/msdos/emtex-contrib/TeXtelmExtel">TeXtelmExtel</a>, <a href="http://ctan.org/pkg/emtexgi">emtexgi</a> під Windows 3.xx. Для перегляду і друку DVI файлів під Windows 3.xx існує GUI програма <a href="http://ctan.org/pkg/dviwin">dviwin</a>.
+
+<br>&nbsp;&nbsp;&nbsp; Як інтегроване середовище для emTeX під OS/2, може використовуватися WorkPlace Shell (див. документацію emTeX).
+
+<br>&nbsp;&nbsp;&nbsp; Дуже рекомендується також встановити <b><a href="http://www.cs.wisc.edu/~ghost/">ghostscript</a></b>.
+
+<h3>&nbsp;<a NAME="TeXstudio"></a>Налаштування інтегрованого середовища <a href="http://texstudio.sourceforge.net/">TeXstudio</a></h3>
+
+&nbsp;&nbsp;&nbsp; <a href="http://texstudio.sourceforge.net/">TeXstudio</a> на даний час є чи не найрозвиненішим інтегрованим середовищем для сторення документів LaTeX. Він запускається під Windows, Unix/Linux, BSD, та Mac OS X. Налаштування <a href="http://texstudio.sourceforge.net/">TeXstudio</a>, у тому числі для роботи з кирилецею, включає наступні кроки:
+<ol>
+<li> <B>:Параметри::Конфігурація TeXstudio::Команди:</B> 
+
+<p>У рядках <b>Переглядач DVI/PS/PDF</b> перевірити/задати параметри виклику конкретного переглядача відповідно до конфігурації системи. Варіанти для різних операційних систем і дистибутивів LaTeX, які забезпечують прямий і зворотній пошук (Forward/Inverse search) між текстом і переглядачем DVI чи PDF (але не PS), можна знайти в <a href="http://texstudio.sourceforge.net/manual/current/usermanual_en.html#SECTION37">посібнику користувача</a>.
+
+<p>У рядку <b>BibTeX 8-бітний</b> задати параметри виклику, напр. <b><tt><font size=+2>bibtex8 -H -c cp1251 %.aux</font></tt></b>, де замість <b><tt><font size=+2>cp1251</font></tt></b> може бути <b><tt><font size=+2>koi8u</font></tt></b>, <b><tt><font size=+2>ruscii</font></tt></b> (кодування DOS) або <b><tt><font size=+2>utf8cyrillic</font></tt></b>, які задають звертання до відповідних конфіґураційних (.csf) файлів пакету <a href="http://ctan.org/pkg/gost">gost</a>.
+</dl>
+
+<li> <B>:Параметри::Конфігурація TeXstudio::Збирання:</B> 
+
+<p>У рядку <b>Усталений засіб бібліографії</b> з випадаючого меню вибрати <b>BibTeX 8-бітний</b>.
+
+<p>Інші рядки можна залишити без змін, якщо планується використовувати <b>pdfLaTeX</b>, або поправити відповідно до потреб. Наприклад, серед пропозицій меню <b>Збирання і перегляд</b> є сценарій <b>Обробка DVI->PS->PDF</b>, який включає ланцюжок <b><tt><font size=+2>latex | dvips | ps2pdf | view-pdf</font></tt></b>.
+
+<li> <B>:Параметри::Конфігурація TeXstudio::Редактор:</B> 
+
+<p>У рядку <b>Усталене кодування</b> задати кодування документу LaTeX за замовчуванням, напр., <b>windows-1251</b>. За потреби, для конкретного документа кодування можна змінити через загальне меню <B>:Зміни::Налаштувати кодування:</B>.
+
+<li> <B>:Параметри::Конфігурація TeXstudio::Перевірка мови:</B> 
+
+<p>Тут можна налаштувати параметри перевірки орфографії за замовчуванням та інші мовні засоби.
+
+</ol>
+
+<p><a href="#Top">[Початок]</a>
+
+<h2><a NAME="doc"></a>Документація по TeX/LaTeX</h2>
+
+&nbsp;&nbsp;&nbsp; По-перше, всякий дистрибутив TeX містить певний мінімум документації.
+
+<p>&nbsp;&nbsp;&nbsp; Вся вільно доступна документація з TeX/LaTeX є на CTAN в директорії <a href="http://ctan.org/tex-archive/info">info</a>. Для вивчення LaTeX 2ε я рекомендую почати з <b><a href="http://ctan.org/pkg/lshort">lshort</a></b> (є <B><a href="http://ctan.org/pkg/lshort-ukr">український</a></B> та <a href="http://ctan.org/pkg/lshort-russian">російський</a> переклади). Дуже рекомендую прочитати розділ 2.5 "Підтримка багатомовності". Український переклад <a href="http://ctan.org/pkg/lshort-ukr">lshort</a></i> містить також розділ 2.5.1 "Українська мова" з корисними поради по створенню документів LaTeX українською мовою. 
+
+<p>&nbsp;&nbsp;&nbsp; Добрим детальним керівництвом з практичного використання LaTeX є книжка <a href="http://ctan.org/tex-archive/info/russian/Computer_Typesetting_Using_LaTeX">Е.М. Балдин "Компьютерная типография LaTeX"</a>. Корисною може бути також <a href="http://www-sbras.nsc.ru/win/docs/TeX/LaTex2e/docs_koi.html">документація Сюткіна</a>.
+
+<h2><a NAME="internet"></a>TeX в Internet</h2>
+
+<a href="http://www.tug.org/">http://www.tug.org/</a> — TeX Users Group (TUG)
+
+<br><a href="http://ru.wikipedia.org/wiki/TeX_Users_Group">списки розсилки і спеціалізовані форуми<a> користувачів кириличного TeXу
+
+<p><a href="http://ctan.org/">http://ctan.org</a> — CTAN
+
+<br><a href="http://www.botik.ru/~znamensk/ftp.vsu.ru/">ftp://ftp.vsu.ru/pub/tex</a> — засоби кирилізації, шрифти, документація (може бути застаріле)
+
+<p><a href="http://faq.tug.org/">http://faq.tug.org/</a> — TeX Frequently Asked Questions (FAQ)
+
+<p><a href="http://tug.org/utilities/texconv/">http://tug.org/utilities/texconv/</a> — Converters between LaTeX and PC Textprocessors
+
+<h3>&nbsp;&nbsp;&nbsp; Newsgroups</h3>
+
+<a href="http://groups.google.com/group/comp.text.tex/">comp.text.tex</a>
+
+<br><a href="http://groups.google.com/group/fido7.ru.tex/">fido7.ru.tex</a>
+
+<p><a href="#Top">[Початок]</a>
+
+<p><a href="http://ph.icmp.lviv.ua/~ashv/">Андрій Швайка</a> (<IMG SRC="../email.gif" NAME="email" ALIGN=BOTTOM WIDTH=123 BORDER=0>)
+<br>
+</body>
+</html>
